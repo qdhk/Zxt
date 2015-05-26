@@ -1,0 +1,69 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#DDDAC4"
+    tools:context=".CustomerMapActivity" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" >
+
+        <TextView
+            android:id="@+id/listview_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:maxEms="8"
+            android:singleLine="true"
+            android:text="计算机网络技术实践教程实践教程 "
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/listview_book_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/listview_book_name"
+            android:layout_marginRight="5dp"
+            android:text="TP393-33/15 " />
+
+        <TextView
+            android:id="@+id/listview_book_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/listview_book_name"
+            android:layout_below="@+id/listview_book_name"
+            android:layout_marginTop="4dp"
+            android:maxEms="20"
+            android:singleLine="true"
+            android:text="韩毅刚, 李亚娜, 王欢等编著 "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/listview_book_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/listview_book_author"
+            android:layout_below="@+id/listview_book_author"
+            android:layout_marginTop="4dp"
+            android:maxEms="12"
+            android:singleLine="true"
+            android:text="机械工业出版社 " 
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/listview_book_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignRight="@+id/listview_book_id"
+            android:layout_below="@+id/listview_book_author"
+            android:layout_marginTop="4dp"
+            android:text="可借复本：3 " />
+    </RelativeLayout>
+
+</RelativeLayout>

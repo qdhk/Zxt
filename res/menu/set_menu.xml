@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.text.text.MainActivity" >
+
+    <item
+        android:id="@+id/set_complete"
+        android:orderInCategory="100"
+        android:showAsAction="always|withText"
+        android:title="保存"/>
+
+</menu>

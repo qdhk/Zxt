@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0F3F6"
+        android:orientation="vertical" >
+
+        <LinearLayout style="@style/wrap_layout" >
+
+            <!-- 上圆角 -->
+
+            <LinearLayout style="@style/top_layout" >
+
+                <TextView
+                    style="@style/usertext"
+                    android:text="个性签名" />
+
+                <ImageView style="@style/img_arrow" />
+            </LinearLayout>
+
+            <!-- 分割线 -->
+
+            <View style="@style/bg_line" />
+            <!-- 无圆角 -->
+
+            <LinearLayout style="@style/mid_layout" >
+
+                <TextView
+                    style="@style/usertext"
+                    android:text="我的资料" />
+
+                <ImageView style="@style/img_arrow" />
+            </LinearLayout>
+
+            <View style="@style/bg_line" />
+            <!-- 下圆角 -->
+
+            <LinearLayout style="@style/bottom_layout" >
+
+                <TextView
+                    style="@style/usertext"
+                    android:text="消息通知" />
+
+                <ImageView style="@style/img_arrow" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 全圆角 -->
+
+        <LinearLayout
+            android:id="@+id/set_section_layout"
+            style="@style/wrap_layout" >
+
+            <LinearLayout style="@style/single_layout" >
+
+                <TextView
+                    style="@style/usertext"
+                    android:text="模块设置" />
+
+                <ImageView style="@style/img_arrow" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_layout_shape" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="2dp" >
+
+                    <TextView
+                        style="@style/usertext"
+                        android:text="研究生院" />
+
+                    <ToggleButton
+                        style="@style/ios_btn"
+                        android:checked="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </LinearLayout>
+
+                <View style="@style/bg_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="2dp" >
+
+                    <TextView
+                        style="@style/usertext"
+                        android:text="教务信息" />
+
+                    <ToggleButton
+                        style="@style/ios_btn"
+                        android:checked="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </LinearLayout>
+
+                <View style="@style/bg_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="2dp" >
+
+                    <TextView
+                        style="@style/usertext"
+                        android:text="广播台" />
+
+                    <ToggleButton
+                        style="@style/ios_btn"
+                        android:checked="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </LinearLayout>
+
+                <View style="@style/bg_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="2dp" >
+
+                    <TextView
+                        style="@style/usertext"
+                        android:text="图书馆" />
+
+                    <ToggleButton
+                        style="@style/ios_btn"
+                        android:checked="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </LinearLayout>
+
+                <View style="@style/bg_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="2dp" >
+
+                    <TextView
+                        style="@style/usertext"
+                        android:text="社团活动" />
+
+                    <ToggleButton
+                        style="@style/ios_btn"
+                        android:checked="true"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </LinearLayout>
+
+                <View style="@style/bg_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="2dp" >
+
+                    <TextView
+                        style="@style/usertext"
+                        android:text="true" />
+
+                    <ToggleButton
+                        style="@style/ios_btn"
+                        android:checked="false"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </LinearLayout>
+
+                <View style="@style/bg_line" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="2dp" >
+
+                    <TextView
+                        style="@style/usertext"
+                        android:text="扫一扫" />
+
+                    <ToggleButton
+                        style="@style/ios_btn"
+                        android:checked="false"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:paddingTop="2dp" >
+
+                    <TextView
+                        style="@style/usertext"
+                        android:text="附近的人" />
+
+                    <ToggleButton
+                        style="@style/ios_btn"
+                        android:checked="false"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</ScrollView>
