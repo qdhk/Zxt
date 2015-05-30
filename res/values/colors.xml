@@ -31,5 +31,7 @@
 
     <color name="border_clo">#ccc</color>
     <color name="text_clo">#333</color>
+    <color name="btn_register_normal">#2dafa3</color>
+    <color name="btn_register_pressed">#4ebcd3</color>
 
 </resources>
