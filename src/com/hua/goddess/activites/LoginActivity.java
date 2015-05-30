@@ -4,15 +4,22 @@
 package com.hua.goddess.activites;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.Bundle;
+
+import cn.jpush.android.api.JPushInterface;
+
 import com.hua.goddess.R;
+import com.hua.goddess.dao.WsRequestHelper;
 import com.hua.goddess.utils.Utils;
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences.Editor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
@@ -62,14 +69,43 @@ public class LoginActivity extends Activity {
 	public static final int LOGIN_SLIDER_TIP = 2; // 登录页面滑块向左自动滑动
 	public static final int LOGIN_PHOTO_ROTATE_TIP = 3; // 登录页面加载图片转动
 
+	WsRequestHelper wh;
+	ProgressDialog pDialog;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
 
+		pDialog = new ProgressDialog(LoginActivity.this);// 实例化
 		setHandler();
 		initMembers();
 		setEventListeners();
+		wh = new WsRequestHelper(new WsRequestHelper.InterfaceCallBack() {
+			@Override
+			public void RequestCallBack(Object result) {
+				// TODO Auto-generated method stub
+				Toast.makeText(getApplicationContext(), result.toString(),
+						Toast.LENGTH_SHORT).show();
+
+				ShowProgressDialog(false);
+				if (result.toString().equals("登录成功")) {
+					// 跳转界面
+					Intent intent = new Intent(LoginActivity.this,
+							WelcomeActivity.class);
+					// startActivity(intent);
+					startActivity(intent);
+					finish();
+				} else if (result.toString().equals("密码错误")) {
+
+					moEditPassword.setText("");
+					moEditPassword.requestFocus();
+				} else if (result.toString().equals("用户名错误")) {
+					moEditUsername.setText("");
+					moEditUsername.requestFocus();
+				}
+			}
+		});
 
 	}
 
@@ -269,6 +305,7 @@ public class LoginActivity extends Activity {
 									.toString();
 							String lsPassword = moEditPassword.getText()
 									.toString();
+							miLastX = 0;
 							startLogin();
 							// TODO 调用借口
 						}
@@ -308,11 +345,29 @@ public class LoginActivity extends Activity {
 
 	}
 
+	private void ShowProgressDialog(boolean isShow) {
+		if (isShow) {
+
+			pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);// 设置进度条风格，风格为圆形，旋转的
+			pDialog.setTitle("");// 设置ProgressDialog 标题
+			pDialog.setMessage("正在登录...");// 设置ProgressDialog 提示信息
+			pDialog.setIndeterminate(false);// 设置ProgressDialog 的进度条是否不明确
+			// pDialog.setCancelable(true);// 设置ProgressDialog 是否可以按退回按键取消
+			pDialog.show();// 让ProgressDialog显示
+		} else {
+			pDialog.hide();
+		}
+	}
+
 	// 游客事件
 	private class OnTravell implements OnClickListener {
 		@Override
 		public void onClick(View v) {
 			showToast("游客");
+			Intent intent = new Intent(LoginActivity.this,
+					WelcomeActivity.class);
+			startActivity(intent);
+			finish();
 		}
 	}
 
@@ -357,34 +412,40 @@ public class LoginActivity extends Activity {
 
 	// 动画开启
 	private void startLogin() {
-		Animation loAnimRotate = AnimationUtils.loadAnimation(this,
-				R.anim.rotate);
-		Animation loAnimScale = AnimationUtils.loadAnimation(this,
-				R.anim.login_photo_scale_small);
-		// 匀速动画
-		LinearInterpolator linearInterpolator = new LinearInterpolator();
-		// 加速动画
-		// AccelerateInterpolator accelerateInterpolator = new
-		// AccelerateInterpolator();
-		// 弹跳动画
-		// BounceInterpolator bounceInterpolator = new BounceInterpolator();
+		// Animation loAnimRotate = AnimationUtils.loadAnimation(this,
+		// R.anim.rotate);
+		// Animation loAnimScale = AnimationUtils.loadAnimation(this,
+		// R.anim.login_photo_scale_small);
+		// // 匀速动画
+		// LinearInterpolator linearInterpolator = new LinearInterpolator();
+		// // 加速动画
+		// // AccelerateInterpolator accelerateInterpolator = new
+		// // AccelerateInterpolator();
+		// // 弹跳动画
+		// // BounceInterpolator bounceInterpolator = new BounceInterpolator();
+		//
+		// loAnimRotate.setInterpolator(linearInterpolator);
+		// loAnimScale.setInterpolator(linearInterpolator);
+		// moImgProgress.setVisibility(View.VISIBLE);
+		// moImgProgress.startAnimation(loAnimRotate);
+		// moImgPhoto.startAnimation(loAnimScale);
 
-		loAnimRotate.setInterpolator(linearInterpolator);
-		loAnimScale.setInterpolator(linearInterpolator);
-		moImgProgress.setVisibility(View.VISIBLE);
-		moImgProgress.startAnimation(loAnimRotate);
-		moImgPhoto.startAnimation(loAnimScale);
+		ShowProgressDialog(true);
+		// moImgSlider.setVisibility(View.GONE);
+		// moViewSlideLine.setVisibility(View.GONE);
+		// moEditUsername.setVisibility(View.GONE);
+		// moEditPassword.setVisibility(View.GONE);
+		// moBtnClearUsername.setVisibility(View.GONE);
+		// moBtnClearPassword.setVisibility(View.GONE);
+		// moBtnRegister.setVisibility(View.GONE);
+		// moBtnTraveller.setVisibility(View.GONE);
 
-		moImgSlider.setVisibility(View.GONE);
-		moViewSlideLine.setVisibility(View.GONE);
-		moEditUsername.setVisibility(View.GONE);
-		moEditPassword.setVisibility(View.GONE);
-		moBtnClearUsername.setVisibility(View.GONE);
-		moBtnClearPassword.setVisibility(View.GONE);
-		moBtnRegister.setVisibility(View.GONE);
-		moBtnTraveller.setVisibility(View.GONE);
+		// moLayoutWelcome.setVisibility(View.VISIBLE);
 
-		moLayoutWelcome.setVisibility(View.VISIBLE);
+		Map<String, Object> values = new HashMap<String, Object>();
+		values.put("name", moEditUsername.getText().toString());
+		values.put("pwd", moEditPassword.getText().toString());
+		wh.Request("login", values);
 	}
 
 	// 动画结束
@@ -420,4 +481,31 @@ public class LoginActivity extends Activity {
 		return true;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see android.app.Activity#onDestroy()
+	 */
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		pDialog.dismiss();
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		MobclickAgent.onResume(this);
+		JPushInterface.onResume(this);
+	}
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		MobclickAgent.onPause(this);
+		JPushInterface.onPause(this);
+	}
 }

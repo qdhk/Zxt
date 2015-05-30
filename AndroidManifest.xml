@@ -157,7 +157,7 @@
         </activity>
         <activity
             android:name="com.hua.goddess.activites.RegisterActivity"
-            android:label="registeractivity"
+            android:label="注册"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" >
         </activity>
@@ -216,6 +216,11 @@
         </activity>
         <activity
             android:name="com.hua.goddess.activites.SettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WindowIsTranslucentTheme" >
+        </activity>
+        <activity
+            android:name="com.hua.goddess.activites.SongrequestActivity"
             android:screenOrientation="portrait"
             android:theme="@style/WindowIsTranslucentTheme" >
         </activity>

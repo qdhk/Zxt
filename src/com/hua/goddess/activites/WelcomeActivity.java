@@ -72,6 +72,7 @@ public class WelcomeActivity extends Activity {
 		overridePendingTransition(android.R.anim.fade_in,
 				android.R.anim.fade_out);
 		this.finish();
+
 	}
 
 	public void onResume() {

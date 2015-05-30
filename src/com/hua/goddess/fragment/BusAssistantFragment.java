@@ -46,7 +46,8 @@ public class BusAssistantFragment extends Fragment {
 
 	private class mPagerAdapter extends FragmentStatePagerAdapter {
 
-		private String Title[] = { "我要点歌", "我要唱歌" };
+		// private String Title[] = { "我要点歌", "我要唱歌" };
+		private String Title[] = { "华电一校广播台" };
 
 		// private String Title[] = { "站点查询", "线路查询" };
 		public mPagerAdapter(FragmentManager fm) {
@@ -58,11 +59,12 @@ public class BusAssistantFragment extends Fragment {
 			Fragment fragment = null;
 			if (arg0 == 0) {
 				// fragment = new SiteSearchFragment();
-				fragment = new SongRequestFragment();
-			} else if (arg0 == 1) {
-				// fragment = new LineSearchFragment();
-				fragment = new SongRequestFragment();
+				fragment = new BroadCastFragment();
 			}
+			// else if (arg0 == 1) {
+			// // fragment = new LineSearchFragment();
+			// fragment = new SongRequestFragment();
+			// }
 			// else if (arg0 == 2) {
 			// fragment = new BusTransferFragment(); 公交换乘
 			// }
@@ -71,7 +73,7 @@ public class BusAssistantFragment extends Fragment {
 
 		@Override
 		public int getCount() {
-			return 2;
+			return 1;
 		}
 
 		@Override

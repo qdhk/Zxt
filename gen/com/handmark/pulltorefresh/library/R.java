@@ -44,14 +44,14 @@ public final class R {
 	public static final class drawable {
 		public static final int default_ptr_flip = 0x7f02004e;
 		public static final int default_ptr_rotate = 0x7f020050;
-		public static final int indicator_arrow = 0x7f020080;
-		public static final int indicator_bg_bottom = 0x7f020081;
-		public static final int indicator_bg_top = 0x7f020082;
+		public static final int indicator_arrow = 0x7f020086;
+		public static final int indicator_bg_bottom = 0x7f020087;
+		public static final int indicator_bg_top = 0x7f020088;
 	}
 	public static final class id {
 		public static final int both = 0x7f05003b;
 		public static final int disabled = 0x7f05002a;
-		public static final int fl_inner = 0x7f050128;
+		public static final int fl_inner = 0x7f050144;
 		public static final int flip = 0x7f050040;
 		public static final int gridview = 0x7f050041;
 		public static final int manualOnly = 0x7f05003c;
@@ -59,17 +59,17 @@ public final class R {
 		public static final int pullFromEnd = 0x7f05003a;
 		public static final int pullFromStart = 0x7f050039;
 		public static final int pullUpFromBottom = 0x7f05003e;
-		public static final int pull_to_refresh_image = 0x7f050129;
-		public static final int pull_to_refresh_progress = 0x7f05012a;
-		public static final int pull_to_refresh_sub_text = 0x7f05012c;
-		public static final int pull_to_refresh_text = 0x7f05012b;
+		public static final int pull_to_refresh_image = 0x7f050145;
+		public static final int pull_to_refresh_progress = 0x7f050146;
+		public static final int pull_to_refresh_sub_text = 0x7f050148;
+		public static final int pull_to_refresh_text = 0x7f050147;
 		public static final int rotate = 0x7f05003f;
 		public static final int scrollview = 0x7f050043;
 		public static final int webview = 0x7f050042;
 	}
 	public static final class layout {
-		public static final int pull_to_refresh_header_horizontal = 0x7f030044;
-		public static final int pull_to_refresh_header_vertical = 0x7f030045;
+		public static final int pull_to_refresh_header_horizontal = 0x7f030045;
+		public static final int pull_to_refresh_header_vertical = 0x7f030046;
 	}
 	public static final class string {
 		public static final int pull_to_refresh_pull_label = 0x7f070015;
