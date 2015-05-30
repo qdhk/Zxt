@@ -29,21 +29,21 @@
     <!-- 侧边栏菜单 -->
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
-        <item>研究生院</item>
         <item>教务信息</item>
-        <item>广播台</item>
+        <item>研究生院</item>
         <item>图书馆</item>
-        <item>社团活动</item>
+        <item>广播台</item>
+        <item>社团组织</item>
         <item>保定天气</item>
         <item>扫一扫</item>
         <item>附近的人</item>
     </string-array>
 
     <array name="nav_drawer_icons">
-        <item>@drawable/yjs</item>
         <item>@drawable/tongzhi</item>
-        <item>@drawable/guangbotai</item>
+        <item>@drawable/yjs</item>
         <item>@drawable/library</item>
+        <item>@drawable/guangbotai</item>
         <item>@drawable/shetuan</item>
         <item>@drawable/weather</item>
         <item>@drawable/saoyisao</item>

@@ -173,32 +173,33 @@ public class ContentActivity extends FragmentActivity {
 		switch (realpoi) {
 		case 0:
 			curItem = 0;
-			title = "研究生院";
-			fragment = new NotiFragment();
-			MobclickAgent.onEvent(this, "noti");
-			break;
-		case 1:
-			curItem = 1;
+
 			title = "教务信息";
 			fragment = new JWXXFragment();
 			MobclickAgent.onEvent(this, "jwxx");
 			break;
+		case 1:
+			curItem = 1;
+			title = "研究生院";
+			fragment = new NotiFragment();
+			MobclickAgent.onEvent(this, "noti");
+			break;
 		case 2:
 			curItem = 2;
-			title = "广播台";
-			fragment = new BusAssistantFragment();
-			MobclickAgent.onEvent(this, "busassistant");
-			break;
-		case 3:
-			curItem = 3;
 			title = "图书馆";
 			// fragment = new ChatSecretaryFragment();
 			fragment = new LibraryFragment();
 			MobclickAgent.onEvent(this, "library");
 			break;
+		case 3:
+			curItem = 3;
+			title = "广播台";
+			fragment = new BusAssistantFragment();
+			MobclickAgent.onEvent(this, "busassistant");
+			break;
 		case 4:
 			curItem = 4;
-			title = "社团活动";
+			title = "社团组织";
 			// fragment = new BeautyMainFragment();
 			// fragment = new LibraryFragment();
 			MobclickAgent.onEvent(this, "beauty");
@@ -339,28 +340,28 @@ public class ContentActivity extends FragmentActivity {
 		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
 				.getResourceId(0, -1)));
 
-		if (settings.getBoolean("jwxx", true)) {
+		if (settings.getBoolean("yjs", true)) {
 			navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
 					.getResourceId(1, -1)));
 			is_checked[1] = 1;
 		} else {
 			is_checked[1] = 0;
 		}
-		if (settings.getBoolean("gbt", true)) {
+		if (settings.getBoolean("tsg", true)) {
 			navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
 					.getResourceId(2, -1)));
 			is_checked[2] = 1;
 		} else {
 			is_checked[2] = 0;
 		}
-		if (settings.getBoolean("tsg", true)) {
+		if (settings.getBoolean("gbt", true)) {
 			navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
 					.getResourceId(3, -1)));
 			is_checked[3] = 1;
 		} else {
 			is_checked[3] = 0;
 		}
-		if (settings.getBoolean("sthd", true)) {
+		if (settings.getBoolean("stzz", true)) {
 			navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
 					.getResourceId(4, -1)));
 			is_checked[4] = 1;
