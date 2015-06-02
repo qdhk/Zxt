@@ -225,14 +225,12 @@ public class ContentActivity extends FragmentActivity {
 		default:
 			break;
 		}
-
 		if (fragment != null) {
 			FragmentManager fragmentManager = getSupportFragmentManager();
 			fragmentManager.beginTransaction()
 					.replace(R.id.frame_container, fragment)
 					.commitAllowingStateLoss();
 		}
-		// update selected item and title, then close the drawer
 		mDrawerList.setItemChecked(position, true);
 		mDrawerList.setSelection(position);
 		mDrawerLayout.closeDrawer(mDrawerList);

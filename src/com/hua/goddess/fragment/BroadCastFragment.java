@@ -4,6 +4,7 @@
 package com.hua.goddess.fragment;
 
 import com.hua.goddess.R;
+import com.hua.goddess.activites.About_HdgbtActivity;
 import com.hua.goddess.activites.SongrequestActivity;
 
 import android.content.Context;
@@ -74,7 +75,9 @@ public class BroadCastFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.linelay_fun1:
-			Toast.makeText(context, "1", 1).show();
+			Intent aboutIntent = new Intent(getActivity(),
+					About_HdgbtActivity.class);
+			startActivity(aboutIntent);
 			break;
 		case R.id.linelay_fun2:
 

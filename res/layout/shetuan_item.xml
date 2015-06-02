@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="5dip"
+        android:background="@drawable/default_qq_avatar"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dip"
+        android:layout_marginLeft="12dip"
+        android:layout_marginRight="10dip"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="【微通知】关于拟毕业同学未参加集体拍照需补拍照片的通知"
+            android:textColor="#7888a9"
+            android:textSize="18.0sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip" >
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="经核实，以下拟毕业同学未参加2014年11月16-18日学校组织的集体拍照，请各位同学务必于2015年1月31日之前到易拍数码影像中心补拍照片，否则会影响毕业证书发放。易拍数码影像中心到店补拍事项易拍数码影像中心 周二至周日 9：30～17：00节假日及周一休息，工作时间拍照无需电话预约。"
+                android:textColor="#404040"
+                android:textSize="16.0sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/fenlei"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dip"
+            android:text="研究生会"
+            android:textColor="#7888a9"
+            android:textSize="14.0sp" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dip" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="10dip"
+                    android:text="昨天"
+                    android:textColor="#808080"
+                    android:textSize="14.0sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dip"
+                    android:background="@drawable/feed_more"
+                    android:scaleType="fitXY" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="@drawable/line" />
+    </LinearLayout>
+
+</LinearLayout>

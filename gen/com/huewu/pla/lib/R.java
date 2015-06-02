@@ -110,7 +110,7 @@ public final class R {
 	}
 	public static final class drawable {
 		public static final int default_ptr_flip_bottom = 0x7f02004f;
-		public static final int xlistview_arrow = 0x7f0200ee;
+		public static final int xlistview_arrow = 0x7f0200f4;
 	}
 	public static final class id {
 		public static final int afterDescendants = 0x7f050028;
@@ -166,21 +166,21 @@ public final class R {
 		public static final int viewEnd = 0x7f050021;
 		public static final int viewStart = 0x7f050020;
 		public static final int visible = 0x7f050001;
-		public static final int xlistview_footer_content = 0x7f050177;
-		public static final int xlistview_footer_hint_textview = 0x7f050179;
-		public static final int xlistview_footer_progressbar = 0x7f050178;
-		public static final int xlistview_header_arrow = 0x7f05017e;
-		public static final int xlistview_header_content = 0x7f05017a;
-		public static final int xlistview_header_hint_textview = 0x7f05017c;
-		public static final int xlistview_header_progressbar = 0x7f05017f;
-		public static final int xlistview_header_text = 0x7f05017b;
-		public static final int xlistview_header_time = 0x7f05017d;
+		public static final int xlistview_footer_content = 0x7f05017d;
+		public static final int xlistview_footer_hint_textview = 0x7f05017f;
+		public static final int xlistview_footer_progressbar = 0x7f05017e;
+		public static final int xlistview_header_arrow = 0x7f050184;
+		public static final int xlistview_header_content = 0x7f050180;
+		public static final int xlistview_header_hint_textview = 0x7f050182;
+		public static final int xlistview_header_progressbar = 0x7f050185;
+		public static final int xlistview_header_text = 0x7f050181;
+		public static final int xlistview_header_time = 0x7f050183;
 		public static final int yes = 0x7f050022;
 	}
 	public static final class layout {
-		public static final int ptr_header = 0x7f030044;
-		public static final int xlistview_footer = 0x7f030054;
-		public static final int xlistview_header = 0x7f030055;
+		public static final int ptr_header = 0x7f030045;
+		public static final int xlistview_footer = 0x7f030058;
+		public static final int xlistview_header = 0x7f030059;
 	}
 	public static final class string {
 		public static final int ptr_last_updated = 0x7f070003;

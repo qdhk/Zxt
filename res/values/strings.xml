@@ -111,6 +111,7 @@
     <string name="updata_text">检测更新</string>
     <string name="set_text">我的设置</string>
     <string name="about">&#160;&#160; &#x000A;&#x000D;&#160;&#160;&#160;&#160;本软件安装、下载使用过程中完全免费且无广告！</string>
+    <string name="about_hdgbt">&#160;&#160; &#x000A;&#x000D;&#160;&#160;&#160;&#160;华电一校广播台是华北电力大学研究生社团，隶属于华北电力大学校团委，以服务广大学生为遵旨，精心为您打造用声音传递温暖，用声音打动校园的传媒平台。 </string>
 
     <string-array name="chat_tips">
         <item>主人，奴婢在此等候多时了</item>

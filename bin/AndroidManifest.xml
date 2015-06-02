@@ -215,6 +215,11 @@
             android:theme="@style/WindowIsTranslucentTheme" >
         </activity>
         <activity
+            android:name="com.hua.goddess.activites.About_HdgbtActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/WindowIsTranslucentTheme" >
+        </activity>
+        <activity
             android:name="com.hua.goddess.activites.SettingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/WindowIsTranslucentTheme" >
