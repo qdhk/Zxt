@@ -55,12 +55,12 @@ public class NavDrawerListAdapter extends BaseAdapter {
 		} else {
 			convertView.setVisibility(View.VISIBLE);
 		}
-		if (position == 0) {
-			TextView tv_countnum = (TextView) convertView
-					.findViewById(R.id.tv_countnum);
-			tv_countnum.setText("12");
-			tv_countnum.setVisibility(View.VISIBLE);
-		}
+		// if (position == 0) {
+		// TextView tv_countnum = (TextView) convertView
+		// .findViewById(R.id.tv_countnum);
+		// tv_countnum.setText("3");
+		// tv_countnum.setVisibility(View.VISIBLE);
+		// }
 		ImageView imgIcon = (ImageView) convertView
 				.findViewById(R.id.imageview_behind_icon);
 		TextView txtTitle = (TextView) convertView

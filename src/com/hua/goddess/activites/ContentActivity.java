@@ -5,13 +5,11 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.R.integer;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -19,23 +17,23 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hua.goddess.R;
 import com.hua.goddess.adapter.NavDrawerListAdapter;
-import com.hua.goddess.fragment.BeautyMainFragment;
 import com.hua.goddess.fragment.BusAssistantFragment;
-import com.hua.goddess.fragment.ChatSecretaryFragment;
 import com.hua.goddess.fragment.JWXXFragment;
 import com.hua.goddess.fragment.LibraryFragment;
-import com.hua.goddess.fragment.NewsFragment;
 import com.hua.goddess.fragment.NotiFragment;
 import com.hua.goddess.fragment.WeatherFragment;
 import com.hua.goddess.global.DeviceInfo;
@@ -59,7 +57,8 @@ public class ContentActivity extends FragmentActivity {
 	private String title = "校园资讯通";
 	private ArrayList<CloseSoftKeyboardListener> myListeners = new ArrayList<CloseSoftKeyboardListener>();
 	private String switcher;
-	public int is_checked[] = { 1, 0, 0, 0, 0, 0, 0, 0 };
+	public int is_checked[] = { 1, 1, 0, 0, 0, 0, 0, 0 };
+	public String username = "未登录";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +66,8 @@ public class ContentActivity extends FragmentActivity {
 		setContentView(R.layout.activity_content);
 		setActionBarStyle();
 
+		Bundle bundle = getIntent().getExtras();
+		username = bundle.getString("username");
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.content_drawer);
 		mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow,
 				GravityCompat.START);
@@ -102,9 +103,9 @@ public class ContentActivity extends FragmentActivity {
 
 		if (savedInstanceState == null) {
 			if ("no".equals(switcher)) {
-				displayView(1);
+				displayView(2);
 			} else {
-				displayView(0);
+				displayView(1);
 			}
 		}
 		UmengUpdateAgent.update(this); // 检测更新
@@ -112,12 +113,16 @@ public class ContentActivity extends FragmentActivity {
 
 	private void initLiftView() {
 		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+
 		mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 		adapter = new NavDrawerListAdapter(getApplicationContext(), getData(),
 				switcher);
-		// View headView = LayoutInflater.from(this).inflate(R.layout.head_view,
-		// null);
-		// mDrawerList.addHeaderView(headView);
+		View headView = LayoutInflater.from(this).inflate(R.layout.head_view,
+				null);
+		TextView textView = (TextView) headView
+				.findViewById(R.id.head_username);
+		textView.setText(username);
+		mDrawerList.addHeaderView(headView);
 		mDrawerList.setAdapter(adapter);
 	}
 
@@ -140,9 +145,48 @@ public class ContentActivity extends FragmentActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			if (position == curItem)
-				return;
-			displayView(position);
+			// if (position == curItem)
+			// return;
+			if (position == 0) {
+				ImageView imageView = (ImageView) view
+						.findViewById(R.id.login_img_photo);
+				imageView.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Intent intent_set = new Intent(ContentActivity.this,
+								SettingActivity.class);
+						startActivity(intent_set);
+					}
+				});
+				TextView textView = (TextView) view
+						.findViewById(R.id.head_username);
+				textView.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Intent intent_set = new Intent(ContentActivity.this,
+								SettingActivity.class);
+						startActivity(intent_set);
+					}
+				});
+
+				TextView count = (TextView) view.findViewById(R.id.tv_countnum);
+				count.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						Toast.makeText(ContentActivity.this, "count", 1).show();
+					}
+				});
+			}
+			if (position >= 1) {
+				displayView(position);
+			}
+
 		}
 	}
 
@@ -174,51 +218,52 @@ public class ContentActivity extends FragmentActivity {
 		case 0:
 			curItem = 0;
 
+			Intent intent_set = new Intent(this, SettingActivity.class);
+			startActivity(intent_set);
+			MobclickAgent.onEvent(this, "about");
+			break;
+		case 1:
+			curItem = 1;
+
 			title = "教务信息";
 			fragment = new JWXXFragment();
 			MobclickAgent.onEvent(this, "jwxx");
 			break;
-		case 1:
-			curItem = 1;
+		case 2:
+			curItem = 2;
 			title = "研究生院";
 			fragment = new NotiFragment();
 			MobclickAgent.onEvent(this, "noti");
 			break;
-		case 2:
-			curItem = 2;
+		case 3:
+			curItem = 3;
 			title = "图书馆";
 			// fragment = new ChatSecretaryFragment();
 			fragment = new LibraryFragment();
 			MobclickAgent.onEvent(this, "library");
 			break;
-		case 3:
-			curItem = 3;
-			title = "广播台";
-			fragment = new BusAssistantFragment();
-			MobclickAgent.onEvent(this, "busassistant");
-			break;
 		case 4:
 			curItem = 4;
 			title = "社团组织";
-			// fragment = new BeautyMainFragment();
-			// fragment = new LibraryFragment();
-			MobclickAgent.onEvent(this, "beauty");
+			fragment = new BusAssistantFragment();
+			MobclickAgent.onEvent(this, "busassistant");
 			break;
 		case 5:
 			curItem = 5;
 			title = "保定天气";
 			fragment = new WeatherFragment();
-			MobclickAgent.onEvent(this, "weather");
+			// fragment = new LibraryFragment();
+			MobclickAgent.onEvent(this, "beauty");
 			break;
 		case 6:
 			curItem = 6;
-			title = "保定天气";
+			title = "扫一扫";
 			fragment = new WeatherFragment();
 			MobclickAgent.onEvent(this, "weather");
 			break;
 		case 7:
 			curItem = 7;
-			title = "保定天气";
+			title = "附近的人";
 			fragment = new WeatherFragment();
 			MobclickAgent.onEvent(this, "weather");
 			break;
@@ -341,49 +386,49 @@ public class ContentActivity extends FragmentActivity {
 		if (settings.getBoolean("yjs", true)) {
 			navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
 					.getResourceId(1, -1)));
-			is_checked[1] = 1;
-		} else {
-			is_checked[1] = 0;
-		}
-		if (settings.getBoolean("tsg", true)) {
-			navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
-					.getResourceId(2, -1)));
 			is_checked[2] = 1;
 		} else {
 			is_checked[2] = 0;
 		}
-		if (settings.getBoolean("gbt", true)) {
-			navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
-					.getResourceId(3, -1)));
+		if (settings.getBoolean("tsg", true)) {
+			navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+					.getResourceId(2, -1)));
 			is_checked[3] = 1;
 		} else {
 			is_checked[3] = 0;
 		}
+		// if (settings.getBoolean("gbt", true)) {
+		// navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+		// .getResourceId(3, -1)));
+		// is_checked[3] = 1;
+		// } else {
+		// is_checked[3] = 0;
+		// }
 		if (settings.getBoolean("stzz", true)) {
-			navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
-					.getResourceId(4, -1)));
+			navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+					.getResourceId(3, -1)));
 			is_checked[4] = 1;
 		} else {
 			is_checked[4] = 0;
 		}
 		if (settings.getBoolean("bdtq", true)) {
-			navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
-					.getResourceId(5, -1)));
+			navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons
+					.getResourceId(4, -1)));
 			is_checked[5] = 1;
 		} else {
 			is_checked[5] = 0;
 		}
 		if (settings.getBoolean("sys", false)) {
-			navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
-					.getResourceId(6, -1)));
+			navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons
+					.getResourceId(5, -1)));
 			is_checked[6] = 1;
 		} else {
 			is_checked[6] = 0;
 		}
 
 		if (settings.getBoolean("fjdr", false)) {
-			navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons
-					.getResourceId(7, -1)));
+			navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons
+					.getResourceId(6, -1)));
 			is_checked[7] = 1;
 		} else {
 			is_checked[7] = 0;

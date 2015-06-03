@@ -49,7 +49,7 @@ public class BroadCastFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 
 		this.inflater = inflater;
-		View rootView = inflater.inflate(R.layout.hdbc_p2, null);
+		View rootView = inflater.inflate(R.layout.hdbc_p1, null);
 
 		layout1 = (LinearLayout) rootView.findViewById(R.id.linelay_fun1);
 		layout2 = (LinearLayout) rootView.findViewById(R.id.linelay_fun2);

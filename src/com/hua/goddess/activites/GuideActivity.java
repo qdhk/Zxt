@@ -139,8 +139,12 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 		}
 
 		public void goHome() {
+			// Intent intent = new Intent(activity, ContentActivity.class);
+			// activity.startActivity(intent);
 			Intent intent = new Intent(activity, ContentActivity.class);
-			activity.startActivity(intent);
+			Bundle bundle = getIntent().getExtras();
+			intent.putExtras(bundle);
+			startActivity(intent);
 			overridePendingTransition(android.R.anim.fade_in,
 					android.R.anim.fade_out);
 			activity.finish();

@@ -17,6 +17,8 @@ import com.umeng.analytics.MobclickAgent;
 import java.util.HashMap;
 import java.util.Map;
 
+import u.aly.bu;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
@@ -68,6 +70,7 @@ public class LoginActivity extends Activity {
 	public static final int LOGIN_FAILED = 1; // 登录失败
 	public static final int LOGIN_SLIDER_TIP = 2; // 登录页面滑块向左自动滑动
 	public static final int LOGIN_PHOTO_ROTATE_TIP = 3; // 登录页面加载图片转动
+	public static String username = "未登录";
 
 	WsRequestHelper wh;
 	ProgressDialog pDialog;
@@ -90,9 +93,13 @@ public class LoginActivity extends Activity {
 
 				ShowProgressDialog(false);
 				if (result.toString().equals("登录成功")) {
+					username = moEditUsername.getText().toString();
 					// 跳转界面
 					Intent intent = new Intent(LoginActivity.this,
 							WelcomeActivity.class);
+					Bundle bundle = new Bundle();
+					bundle.putString("username", username);
+					intent.putExtras(bundle);
 					// startActivity(intent);
 					startActivity(intent);
 					finish();
@@ -366,7 +373,12 @@ public class LoginActivity extends Activity {
 			showToast("游客");
 			Intent intent = new Intent(LoginActivity.this,
 					WelcomeActivity.class);
+			Bundle bundle = new Bundle();
+			bundle.putString("username", username);
+			intent.putExtras(bundle);
+			// startActivity(intent);
 			startActivity(intent);
+			finish();
 			finish();
 		}
 	}

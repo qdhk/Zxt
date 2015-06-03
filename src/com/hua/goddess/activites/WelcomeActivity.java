@@ -60,6 +60,8 @@ public class WelcomeActivity extends Activity {
 
 	private void goHome() {
 		Intent intent = new Intent(WelcomeActivity.this, ContentActivity.class);
+		Bundle bundle = getIntent().getExtras();
+		intent.putExtras(bundle);
 		startActivity(intent);
 		overridePendingTransition(android.R.anim.fade_in,
 				android.R.anim.fade_out);
@@ -68,6 +70,8 @@ public class WelcomeActivity extends Activity {
 
 	private void goGuide() {
 		Intent intent = new Intent(WelcomeActivity.this, GuideActivity.class);
+		Bundle bundle = getIntent().getExtras();
+		intent.putExtras(bundle);
 		startActivity(intent);
 		overridePendingTransition(android.R.anim.fade_in,
 				android.R.anim.fade_out);

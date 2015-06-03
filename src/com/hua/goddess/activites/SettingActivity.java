@@ -43,7 +43,7 @@ public class SettingActivity extends SwipeBackActivity {
 
 		btn1 = (ToggleButton) findViewById(R.id.btn_01);
 		btn2 = (ToggleButton) findViewById(R.id.btn_02);
-		btn3 = (ToggleButton) findViewById(R.id.btn_03);
+		// btn3 = (ToggleButton) findViewById(R.id.btn_03);
 		btn4 = (ToggleButton) findViewById(R.id.btn_04);
 		btn5 = (ToggleButton) findViewById(R.id.btn_05);
 		btn6 = (ToggleButton) findViewById(R.id.btn_06);
@@ -51,7 +51,7 @@ public class SettingActivity extends SwipeBackActivity {
 
 		btn1.setChecked(settings.getBoolean("yjs", true));
 		btn2.setChecked(settings.getBoolean("tsg", true));
-		btn3.setChecked(settings.getBoolean("gbt", true));
+		// btn3.setChecked(settings.getBoolean("gbt", true));
 		btn4.setChecked(settings.getBoolean("stzz", true));
 		btn5.setChecked(settings.getBoolean("bdtq", true));
 		btn6.setChecked(settings.getBoolean("sys", false));
@@ -111,7 +111,7 @@ public class SettingActivity extends SwipeBackActivity {
 
 		editor.putBoolean("yjs", btn1.isChecked());
 		editor.putBoolean("tsg", btn2.isChecked());
-		editor.putBoolean("gbt", btn3.isChecked());
+		// editor.putBoolean("gbt", btn3.isChecked());
 		editor.putBoolean("stzz", btn4.isChecked());
 		editor.putBoolean("bdtq", btn5.isChecked());
 		editor.putBoolean("sys", btn6.isChecked());

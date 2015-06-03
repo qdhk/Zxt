@@ -17,7 +17,7 @@
         android:id="@+id/browser_toolbar_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@drawable/actionbar_back" >
+        android:background="@drawable/actionbar_back1" >
 
         <ImageButton
             android:id="@+id/mxx_common_activity_browser_toolbar_btn_back"
@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:background="@drawable/mxx_view_bg_theme"
             android:scaleType="center"
-            android:src="@drawable/mxx_browser_toolbar_goback" />
+            android:src="@drawable/back" />
 
         <ImageButton
             android:id="@+id/mxx_common_activity_browser_toolbar_btn_forward"
@@ -35,13 +35,13 @@
             android:layout_weight="1"
             android:background="@drawable/mxx_view_bg_theme"
             android:scaleType="center"
-            android:src="@drawable/mxx_browser_toolbar_goforward" />
+            android:src="@drawable/forward" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1" >
+            android:layout_weight="1"
+            android:gravity="center" >
 
             <ProgressBar
                 android:id="@+id/progressBar1"

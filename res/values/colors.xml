@@ -5,9 +5,9 @@
     <color name="noti_bg">#442B3C53</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="list_background">#2c2c2c</color>
+    <color name="list_background">#A07E59</color>
     <color name="list_background_pressed">#fa3e36</color>
-    <color name="list_divider">#0e0e0e</color>
+    <color name="list_divider">#254464</color>
     <color name="blue">#ff57bdeb</color>
     <color name="balck_color">#ff000000</color>
 

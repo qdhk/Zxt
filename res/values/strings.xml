@@ -32,7 +32,6 @@
         <item>教务信息</item>
         <item>研究生院</item>
         <item>图书馆</item>
-        <item>广播台</item>
         <item>社团组织</item>
         <item>保定天气</item>
         <item>扫一扫</item>
@@ -43,7 +42,6 @@
         <item>@drawable/tongzhi</item>
         <item>@drawable/yjs</item>
         <item>@drawable/library</item>
-        <item>@drawable/guangbotai</item>
         <item>@drawable/shetuan</item>
         <item>@drawable/weather</item>
         <item>@drawable/saoyisao</item>
@@ -110,8 +108,9 @@
     <string name="about_us">关于我们</string>
     <string name="updata_text">检测更新</string>
     <string name="set_text">我的设置</string>
-    <string name="about">&#160;&#160; &#x000A;&#x000D;&#160;&#160;&#160;&#160;本软件安装、下载使用过程中完全免费且无广告！</string>
+    <string name="about">&#160;&#160; &#x000A;&#x000D;&#160;&#160;&#160;&#160;资讯通的设计制作将一个群体内的各类通知信息进行了整合，方便大家获取相关信息。本作品基本实现了对相关信息发布平台消息的抓取功能，但在各个界面的布局设计方面有待改进。</string>
     <string name="about_hdgbt">&#160;&#160; &#x000A;&#x000D;&#160;&#160;&#160;&#160;华电一校广播台是华北电力大学研究生社团，隶属于华北电力大学校团委，以服务广大学生为遵旨，精心为您打造用声音传递温暖，用声音打动校园的传媒平台。 </string>
+    <string name="song_ope">&#160;&#160; &#x000A;&#x000D;&#160;&#160;&#160;&#160;输入有效信息点歌后，您的点歌信息会发送到广播台指定邮箱，请不要频繁操作。</string>
 
     <string-array name="chat_tips">
         <item>主人，奴婢在此等候多时了</item>
