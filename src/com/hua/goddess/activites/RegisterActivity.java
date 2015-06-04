@@ -26,6 +26,7 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -49,7 +50,7 @@ public class RegisterActivity extends Activity {
 	private EditText passwordEditText;
 	private EditText confirmPwdEditText;
 	ProgressDialog pd;
-	private String sex = null;
+	private String sex = "1";
 
 	private String uid = null;
 
@@ -60,6 +61,7 @@ public class RegisterActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_register);
 		pd = new ProgressDialog(RegisterActivity.this);
 		// DeviceUuidFactory uuid = new DeviceUuidFactory(this);
@@ -148,10 +150,11 @@ public class RegisterActivity extends Activity {
 			Toast.makeText(this, "两次输入的密码不一致，请重新输入！", Toast.LENGTH_SHORT)
 					.show();
 			return;
-		} else if (sex == null) {
-			Toast.makeText(this, "请选择您的性别！", Toast.LENGTH_SHORT).show();
-			return;
 		}
+		// else if (sex == null) {
+		// Toast.makeText(this, "请选择您的性别！", Toast.LENGTH_SHORT).show();
+		// return;
+		// }
 
 		if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(pwd)) {
 

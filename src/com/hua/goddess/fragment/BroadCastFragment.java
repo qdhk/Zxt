@@ -5,6 +5,7 @@ package com.hua.goddess.fragment;
 
 import com.hua.goddess.R;
 import com.hua.goddess.activites.About_HdgbtActivity;
+import com.hua.goddess.activites.ContentActivity;
 import com.hua.goddess.activites.SongrequestActivity;
 
 import android.content.Context;
@@ -84,7 +85,6 @@ public class BroadCastFragment extends Fragment implements OnClickListener {
 			Toast.makeText(context, "2", 1).show();
 			break;
 		case R.id.linelay_fun3:
-
 			Toast.makeText(context, "3", 1).show();
 			break;
 		case R.id.linelay_fun4:
@@ -97,6 +97,9 @@ public class BroadCastFragment extends Fragment implements OnClickListener {
 			// .replace(R.id.frame_container, fragment)
 			// .commitAllowingStateLoss();
 			Intent intent = new Intent(getActivity(), SongrequestActivity.class);
+			Bundle bundle = new Bundle();
+			bundle.putString("username", ContentActivity.username);
+			intent.putExtras(bundle);
 			startActivity(intent);
 			break;
 

@@ -11,6 +11,7 @@ import java.util.Map;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import u.aly.bu;
 import u.aly.ca;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import android.app.ActionBar;
@@ -67,6 +68,7 @@ public class SongrequestActivity extends SwipeBackActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.songrequest2);
+
 		time = new TimeCount(60000, 1000);
 		setActionBarStyle("点歌互动");
 		// SlidingUpPanelLayout layout = (SlidingUpPanelLayout)
@@ -94,6 +96,14 @@ public class SongrequestActivity extends SwipeBackActivity implements
 
 			@Override
 			public void onClick(View v) {
+
+				Bundle bundle = getIntent().getExtras();
+				if (bundle.getString("username").equals("未登录")
+						|| bundle == null) {
+					Toast.makeText(SongrequestActivity.this, "请先登录", 1).show();
+					return;
+				}
+
 				// TODO Auto-generated method stub
 				if (IsFastClick.isFastDoubleClick()) {
 					Toast.makeText(SongrequestActivity.this, "您点击频率过快", 1)
@@ -117,7 +127,8 @@ public class SongrequestActivity extends SwipeBackActivity implements
 				contentString = "点歌名称：" + editText1.getText().toString();
 				contentString += "\n" + "点歌对象："
 						+ editText2.getText().toString();
-				contentString += "\n" + "点歌者：" + editText3.getText().toString();
+				contentString += "\n" + "点歌者：" + editText3.getText().toString()
+						+ "--用户名:" + bundle.getString("username");
 				contentString += "\n" + "歌曲播放时间：" + tv4.getText().toString();
 				contentString += "\n" + "其余备注："
 						+ editText5.getText().toString();

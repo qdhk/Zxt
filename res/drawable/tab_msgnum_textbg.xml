@@ -20,7 +20,7 @@
     <!-- 描边 采用那样的方式将外形轮廓线画出来，width表示笔的粗细，dashWidth表示小横线的宽度，dashGap表示小横线之间的距离 -->
     <padding
         android:bottom="2dp"
-        android:left="2dp"
+        android:left="6dp"
         android:right="2dp"
         android:top="2dp" />
     <!-- 和CSS中的padding应该是一个道理 -->

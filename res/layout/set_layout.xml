@@ -190,7 +190,7 @@
 
                     <TextView
                         style="@style/usertext"
-                        android:text="保定天气" />
+                        android:text="天气近况" />
 
                     <ToggleButton
                         android:id="@+id/btn_05"

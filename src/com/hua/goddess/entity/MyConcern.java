@@ -9,12 +9,22 @@ import android.R.string;
  * @author Administrator
  * 
  */
-public class Event {
+public class MyConcern {
 
 	private String ID;
 	private String date;
 	private String content;
 	private String fenlei;
+
+	private String title;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 	public String getID() {
 		return ID;

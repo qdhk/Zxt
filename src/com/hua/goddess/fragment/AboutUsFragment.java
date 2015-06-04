@@ -33,7 +33,7 @@ public class AboutUsFragment extends Fragment {
 
 		TextView developers_qq = (TextView) rootView
 				.findViewById(R.id.developers_qq);
-		developers_qq.setText("开发者:华北电力大学 Elvis团队");
+		developers_qq.setText("开发者:xxxxxx大学 Elvis团队");
 		// TextView not_sinaweibo = (TextView) rootView
 		// .findViewById(R.id.not_sinaweibo);
 		// not_sinaweibo.setMovementMethod(LinkMovementMethod.getInstance());

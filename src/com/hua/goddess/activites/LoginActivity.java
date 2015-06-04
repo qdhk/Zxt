@@ -102,7 +102,7 @@ public class LoginActivity extends Activity {
 					intent.putExtras(bundle);
 					// startActivity(intent);
 					startActivity(intent);
-					finish();
+					LoginActivity.this.finish();
 				} else if (result.toString().equals("密码错误")) {
 
 					moEditPassword.setText("");
@@ -378,8 +378,7 @@ public class LoginActivity extends Activity {
 			intent.putExtras(bundle);
 			// startActivity(intent);
 			startActivity(intent);
-			finish();
-			finish();
+			LoginActivity.this.finish();
 		}
 	}
 

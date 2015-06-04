@@ -16,7 +16,7 @@
             android:layout_height="60.0dip"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="10dp"
-            android:background="@drawable/ncepu_logo"
+            android:background="@drawable/ncepu_logo2"
             android:scaleType="fitXY" />
 
         <TextView

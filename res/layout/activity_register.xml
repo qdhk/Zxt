@@ -9,7 +9,7 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:background="#404040" >
+        android:background="#A07E59" >
 
         <LinearLayout
             android:layout_width="45dp"
@@ -38,8 +38,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:background="@drawable/register_bg"
         android:orientation="vertical" >
 
         <RelativeLayout
@@ -216,6 +215,7 @@
 
                 <RadioButton
                     android:id="@+id/male"
+                    android:checked="true"
                     android:text="男"
                     android:textColor="#555555" />
 
@@ -240,8 +240,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/button_register_bg"
+                android:layout_marginTop="2dp"
+                android:background="#1A64E9"
                 android:onClick="register"
                 android:paddingBottom="7dp"
                 android:paddingTop="7dp"

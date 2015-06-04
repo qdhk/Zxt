@@ -17,7 +17,7 @@
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:src="@drawable/hdbc_logo_big" >
 
                 <!-- 这是背景图 -->
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="华电一校广播台"
+                android:text="广播台"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="华北电力大学(保定)一校区的唯一声音媒体,旨在成为同学们沟通的媒介,给大家带来快乐." />
+                android:text="xxxx大学一校区的唯一声音媒体,旨在成为同学们沟通的媒介,给大家带来快乐." />
         </LinearLayout>
 
         <TableLayout

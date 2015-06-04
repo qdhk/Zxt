@@ -25,6 +25,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,7 +59,9 @@ public class ContentActivity extends FragmentActivity {
 	private ArrayList<CloseSoftKeyboardListener> myListeners = new ArrayList<CloseSoftKeyboardListener>();
 	private String switcher;
 	public int is_checked[] = { 1, 1, 0, 0, 0, 0, 0, 0 };
-	public String username = "未登录";
+	public static String username = "未登录";
+
+	private Boolean hasseen = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +124,11 @@ public class ContentActivity extends FragmentActivity {
 				null);
 		TextView textView = (TextView) headView
 				.findViewById(R.id.head_username);
+		TextView countTextView = (TextView) headView
+				.findViewById(R.id.tv_countnum);
+		if (username.equals("未登录")) {
+			countTextView.setVisibility(View.GONE);
+		}
 		textView.setText(username);
 		mDrawerList.addHeaderView(headView);
 		mDrawerList.setAdapter(adapter);
@@ -148,9 +156,9 @@ public class ContentActivity extends FragmentActivity {
 			// if (position == curItem)
 			// return;
 			if (position == 0) {
-				ImageView imageView = (ImageView) view
-						.findViewById(R.id.login_img_photo);
-				imageView.setOnClickListener(new OnClickListener() {
+				LinearLayout leftLayout = (LinearLayout) view
+						.findViewById(R.id.LinearLayout_left);
+				leftLayout.setOnClickListener(new OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
@@ -160,26 +168,31 @@ public class ContentActivity extends FragmentActivity {
 						startActivity(intent_set);
 					}
 				});
-				TextView textView = (TextView) view
-						.findViewById(R.id.head_username);
-				textView.setOnClickListener(new OnClickListener() {
+				final TextView textView = (TextView) view
+						.findViewById(R.id.tv_countnum);
+
+				LinearLayout rightLayout = (LinearLayout) view
+						.findViewById(R.id.LinearLayout_right);
+				rightLayout.setOnClickListener(new OnClickListener() {
 
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						Intent intent_set = new Intent(ContentActivity.this,
-								SettingActivity.class);
-						startActivity(intent_set);
-					}
-				});
+						if (!hasseen) {
+							// Toast.makeText(ContentActivity.this, "跳转至最新通知页面",
+							// 1)
+							// .show();
+							hasseen = true;
+							textView.setVisibility(View.GONE);
+							mDrawerLayout.closeDrawer(mDrawerList);
 
-				TextView count = (TextView) view.findViewById(R.id.tv_countnum);
-				count.setOnClickListener(new OnClickListener() {
-
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						Toast.makeText(ContentActivity.this, "count", 1).show();
+							Intent intent = new Intent(ContentActivity.this,
+									MyConcernActivity.class);
+							Bundle bundle = new Bundle();
+							bundle.putString("username", username);
+							intent.putExtras(bundle);
+							startActivity(intent);
+						}
 					}
 				});
 			}
@@ -250,7 +263,7 @@ public class ContentActivity extends FragmentActivity {
 			break;
 		case 5:
 			curItem = 5;
-			title = "保定天气";
+			title = "天气近况";
 			fragment = new WeatherFragment();
 			// fragment = new LibraryFragment();
 			MobclickAgent.onEvent(this, "beauty");
