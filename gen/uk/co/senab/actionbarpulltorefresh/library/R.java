@@ -67,7 +67,7 @@ public final class R {
 		public static final int spb_default_sections_count = 0x7f0a0000;
 	}
 	public static final class layout {
-		public static final int default_header = 0x7f030020;
+		public static final int default_header = 0x7f030021;
 	}
 	public static final class string {
 		public static final int define_smoothprogressbar = 0x7f07000a;

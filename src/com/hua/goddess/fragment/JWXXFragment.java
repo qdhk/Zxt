@@ -3,6 +3,7 @@ package com.hua.goddess.fragment;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager.LayoutParams;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,7 +12,9 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import com.hua.goddess.R;
 import com.hua.goddess.widget.ProgressWebView;
@@ -23,6 +26,7 @@ public class JWXXFragment extends Fragment implements OnClickListener {
 	private ImageButton mBtnBack, mBtnForward, mBtnRefresh;
 	private ProgressBar mProgressBar;
 	private String url = "http://59.67.225.73/m";
+	private View mErrorView;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,6 +61,12 @@ public class JWXXFragment extends Fragment implements OnClickListener {
 			}
 
 			@Override
+			public void onReceivedError(WebView view, int errorCode,
+					String description, String failingUrl) {
+				showErrorPage();// 显示错误页面
+			}
+
+			@Override
 			public void onPageStarted(WebView view, String url, Bitmap favicon) {
 				// TODO Auto-generated method stub
 				super.onPageStarted(view, url, favicon);
@@ -74,6 +84,36 @@ public class JWXXFragment extends Fragment implements OnClickListener {
 
 		});
 		webView.loadUrl(url);
+	}
+
+	protected void showErrorPage() {
+		LinearLayout webParentView = (LinearLayout) webView.getParent();
+		initErrorPage();// 初始化自定义页面
+		while (webParentView.getChildCount() > 1) {
+			webParentView.removeViewAt(0);
+		}
+		@SuppressWarnings("deprecation")
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		webParentView.addView(mErrorView, 0, lp);
+	}
+
+	/***
+	 * 显示加载失败时自定义的网页
+	 */
+	protected void initErrorPage() {
+		if (mErrorView == null) {
+			mErrorView = getActivity().getLayoutInflater().inflate(
+					R.layout.activity_url_error, null);
+			// RelativeLayout button = (RelativeLayout) mErrorView
+			// .findViewById(R.id.online_error_btn_retry);
+			// button.setOnClickListener(new OnClickListener() {
+			// public void onClick(View v) {
+			// webView.reload();
+			// }
+			// });
+			// mErrorView.setOnClickListener(null);
+		}
 	}
 
 	public void onResume() {
