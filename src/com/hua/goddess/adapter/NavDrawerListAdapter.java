@@ -50,11 +50,11 @@ public class NavDrawerListAdapter extends BaseAdapter {
 			convertView = mInflater.inflate(R.layout.behind_list_show, null);
 		}
 
-		if ((position == 0 || position == 3) && "no".equals(switcher)) {
-			convertView.setVisibility(View.GONE);
-		} else {
-			convertView.setVisibility(View.VISIBLE);
-		}
+		// if ((position == 0 || position == 3) && "no".equals(switcher)) {
+		// convertView.setVisibility(View.GONE);
+		// } else {
+		// convertView.setVisibility(View.VISIBLE);
+		// }
 		// if (position == 0) {
 		// TextView tv_countnum = (TextView) convertView
 		// .findViewById(R.id.tv_countnum);
